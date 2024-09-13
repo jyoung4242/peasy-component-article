@@ -9,10 +9,15 @@ import { Label, LabelState } from "./components/label";
   Defining the data model which serves as Peasy-UI State
 */
 export const model = {
-  Label,
+  Label, // importing the component Class into the data model
   Button,
-  labelInstance: undefined as Label | undefined,
+
+  labelInstance: undefined as Label | undefined, // this is the assigned 'instance' of the Label component
+
+  // This is the state 'props' that are passed into the Label component
   counterState: { count: 0, className: "" } as LabelState,
+
+  // This is the state 'props' that are passed into the Button Components, one for each instance used
   upButtonState: {
     buttonText: "Up",
     className: "up",
