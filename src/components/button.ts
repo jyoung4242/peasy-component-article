@@ -2,7 +2,6 @@ export type ButtonState = {
   buttonText: string;
   className: string;
   buttonClickHandler: (event: Event, model: any, elem: HTMLElement) => void;
-  countReference: number;
 };
 
 export class Button {
@@ -47,12 +46,11 @@ export class Button {
   constructor(
     public buttonText: string,
     public className: string,
-    public buttonClickHandler: (event: Event, model: any, elem: HTMLElement) => void,
-    public countReference: number
+    public buttonClickHandler: (event: Event, model: any, elem: HTMLElement) => void
   ) {}
 
   // static method that creates an instance of the class - required for Peasy-UI components
   static create(state: ButtonState) {
-    return new Button(state.buttonText, state.className, state.buttonClickHandler, state.countReference);
+    return new Button(state.buttonText, state.className, state.buttonClickHandler);
   }
 }
