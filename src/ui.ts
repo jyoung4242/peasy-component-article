@@ -21,14 +21,14 @@ export const model = {
   upButtonState: {
     buttonText: "Up",
     className: "up",
-    buttonClickHandler: (event: Event, model: any, elem: HTMLElement, attribute: any, object: any) => {
+    buttonClickHandler: () => {
       increment();
     },
   } as ButtonState,
   downButtonState: {
     buttonText: "Down",
     className: "down",
-    buttonClickHandler: (event: Event, model: any, elem: HTMLElement, attribute: any, object: any) => {
+    buttonClickHandler: () => {
       decrement();
     },
   } as ButtonState,
