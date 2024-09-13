@@ -2,45 +2,15 @@
   Importing UI components here
 */
 
+import { UIView } from "@peasy-lib/peasy-ui";
 import { Button, ButtonState } from "./components/button";
 import { Label, LabelState } from "./components/label";
 
-/*
-  Defining the data model which serves as Peasy-UI State
-*/
-export const model = {
-  Label, // adding the component Classes into the data model
-  Button,
-
-  labelInstance: undefined as Label | undefined, // this is the assigned 'instance' of the Label component
-
-  // This is the state 'props' that are passed into the Label component
-  counterState: { count: 0, className: "" } as LabelState,
-
-  // This is the state 'props' that are passed into the Button Components, one for each instance used
-  upButtonState: {
-    buttonText: "Up",
-    className: "up",
-    buttonClickHandler: (event: Event, model: any, elem: HTMLElement, attribute: any, object: any) => {
-      increment();
-    },
-  } as ButtonState,
-  downButtonState: {
-    buttonText: "Down",
-    className: "down",
-    buttonClickHandler: (event: Event, model: any, elem: HTMLElement, attribute: any, object: any) => {
-      decrement();
-    },
-  } as ButtonState,
-};
-
-/*
-  HTML template which is string literal representing what gets rendered by Peasy-UI
-*/
-
-export const template = `
-<div>
-    <style>
+// This is the class that will be instantiated by Peasy-UI
+export class AppUI {
+  public static template = `
+    <div>
+      <style>
         .container {
             position: fixed;
             top: 50%;
@@ -63,34 +33,41 @@ export const template = `
             display: flex;
             flex-direction: row;
         }
-    </style>
+      </style>
 
-    <div class="container">
+      <div class="container">
 
         <div class="label_container">
           <!-- Using the Peasy-UI Component here for a Label-->
-          <\${Label:labelInstance === counterState}>
+          <\${Label:labelView === counterState}>
         </div>
-       
+      
         <div class="button_container">
           <!-- Creating two instances of the Peasy-UI Components here for buttons-->
           <\${Button === upButtonState}>
           <\${Button === downButtonState}>
         </div>
-    
-    </div>
-</div>`;
+      
+      </div>
+    </div>`;
 
-/*
-  Utility functions that let me access the data model after instantiation
-*/
+  public Label = Label;
+  public Button = Button;
 
-function increment() {
-  //@ts-expect-error
-  model.labelInstance?.model.increment();
-}
+  public labelView: UIView | undefined;
 
-function decrement() {
-  //@ts-expect-error
-  model.labelInstance?.model.decrement();
+  // This is the state that is passed into the Label component
+  public counterState: LabelState = { count: 0, className: "" };
+
+  // These are the states that are passed into the Button Components, one for each instance used
+  public upButtonState: ButtonState = {
+    buttonText: "Up",
+    className: "up",
+    buttonClickHandler: () => this.labelView!.model.increment(),
+  };
+  public downButtonState: ButtonState = {
+    buttonText: "Down",
+    className: "down",
+    buttonClickHandler: () => this.labelView!.model.decrement(),
+  };
 }

@@ -2,7 +2,6 @@ export type ButtonState = {
   buttonText: string;
   className: string;
   buttonClickHandler: (event: Event, model: any, elem: HTMLElement) => void;
-  countReference: number;
 };
 
 export class Button {
