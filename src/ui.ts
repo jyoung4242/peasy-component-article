@@ -9,7 +9,7 @@ import { Label, LabelState } from "./components/label";
   Defining the data model which serves as Peasy-UI State
 */
 export const model = {
-  Label, // importing the component Class into the data model
+  Label, // adding the component Classes into the data model
   Button,
 
   labelInstance: undefined as Label | undefined, // this is the assigned 'instance' of the Label component
@@ -49,7 +49,7 @@ export const template = `
             width: 200px;
             height: 100px;
             padding: 10px;
-            border: 1px solid whitesmoke;
+            border: 2px solid whitesmoke;
             border-radius: 10px;
             display: flex;
             flex-direction: column;
