@@ -22,6 +22,13 @@ export class Button {
           background-color: whitesmoke;
       }
 
+      .button_Component:active {
+        -webkit-box-shadow: inset 0px 0px 5px #c1c1c1;
+        -moz-box-shadow: inset 0px 0px 5px #c1c1c1;
+        box-shadow: inset 0px 0px 5px #c1c1c1;
+        outline: none;
+      }
+
       .up {
         color: whitesmoke;
         background-color: green;
