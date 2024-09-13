@@ -12,14 +12,26 @@ export class Button {
     <style>
       .button_Component {
           font-size: 1em;
-          color: #111111;
-          background-color: whitesmoke;
           border-radius: 10px;
           border: 0px;
           width: 60px;
           height: 25px;
           margin: 5px;
+          font-weight: bold;
+          color: #111111;
+          background-color: whitesmoke;
       }
+
+      .up {
+        color: whitesmoke;
+        background-color: green;
+      }
+
+      .down {
+        color: whitesmoke;
+        background-color: red;
+      }
+      
     </style>
     <button class="button_Component \${className}"  \${click@=>buttonClickHandler}">\${buttonText}</button>
   `;
