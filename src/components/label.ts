@@ -1,3 +1,5 @@
+import { UI } from "@peasy-lib/peasy-ui";
+
 export type LabelState = {
   count: number;
   className: string;

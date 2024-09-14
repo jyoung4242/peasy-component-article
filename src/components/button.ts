@@ -1,3 +1,5 @@
+import { UI } from "@peasy-lib/peasy-ui";
+
 export type ButtonState = {
   buttonText: string;
   className: string;
