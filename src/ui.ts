@@ -4,11 +4,7 @@
 
 import { Label, LabelState } from "./components/label";
 import { Button, ButtonState } from "./components/button";
-
-import { UI, UIView } from "@peasy-lib/peasy-ui";
-
-UI.register("Button", Button);
-UI.register("Label", Label);
+import { UIView } from "@peasy-lib/peasy-ui";
 
 //new AppUI class architecture
 
@@ -30,6 +26,9 @@ export class AppUI {
     
     </div>
 </div>`;
+
+  public Button = Button;
+  public Label = Label;
 
   labelInstance: UIView | undefined = undefined; // this is the assigned 'instance' of the Label component
 
